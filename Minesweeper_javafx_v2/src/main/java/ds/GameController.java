@@ -1,12 +1,14 @@
 package ds;
 
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameController {
+public class GameController extends StackPane {
 
     private int height = 600;
     private int width = 800;
@@ -16,7 +18,7 @@ public class GameController {
     private int field_y = height / boxSize1;
     Mape map_field;
     Box box_tile ;
-    private Box[][] controller_field = map_field.getField();
+    //private Box[][] controller_field = map_field.getField();
     private Text text = box_tile.getText();
     // private boolean isBomb;
     private boolean isOpen = box_tile.isOpen();
@@ -45,6 +47,7 @@ public class GameController {
         return neighbours;
     }
 */
+    /*
     public List<Box> getNeighbours (Box oneBox){
         List<Box> neighbours = new ArrayList<>();
 
@@ -74,9 +77,20 @@ public class GameController {
         }
         return neighbours;
     }
+*/
+    /*
+    public void ClickListener(Box individualBox){
+        setOnMouseClicked(e -> individualBox.open(this.x, this.y));
+    }
+    */
 
-    public void open(int x, int y) {
-        box_tile = controller_field[x][y];
+    /*
+    public void gettingBox(int x, int y){
+
+    }
+
+    public void open(Box box_tile) {
+     //   box_tile = controller_field[x][y];
 
         if (box_tile.isOpen()) {
             return;
@@ -86,10 +100,11 @@ public class GameController {
         square.setFill(null);
 
         if (text.getText().isEmpty()) {
-
             //  gameController.getNeighbours().forEach(Box::open);
-            getNeighbours(box_tile).forEach(t -> open(t.getX(), t.getY()));
+            map_field.getNeighbours(box_tile).forEach(t -> open(t.getX(), t.getY()));
         }
     }
 
+
+     */
 }

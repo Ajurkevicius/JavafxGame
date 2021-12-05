@@ -47,16 +47,10 @@ public class Mape {
                 if(is_Bomb==true){
                     continue;
                 }
-
                 //
-
-                    long bombs = controller1.getNeighbours(individualBox).stream().filter(t -> t.getisBomb()).count();
-
+                    long bombs = getNeighbours(individualBox).stream().filter(t -> t.getisBomb()).count();
                 // long bombs = controller1.getNeighbours(individualBox).forEach(t -> t.getisBomb()).count();
-
 //                getNeighbours(box_tile).forEach(t -> open(t.getX(), t.getY()));
-
-
                 if(bombs> 0) {
                     Text text = new Text();
                     text.setText(String.valueOf(bombs));
@@ -66,6 +60,59 @@ public class Mape {
         }
         return root;
     }
+
+
+
+
+    public List<Box> getNeighbours (Box oneBox){
+        List<Box> neighbours = new ArrayList<>();
+
+        int[] points = new int[]{
+                -1,-1,
+                -1,0,
+                -1,1,
+                0,-1,
+                0,1,
+                1,-1,
+                1,0,
+                1,1
+        };
+
+        for (int i=0; i<points.length; i++){
+            int dx= points[i];
+            int dy= points[++i];
+
+            int newX = oneBox.getX()+dx;
+            int newY = oneBox.getY()+dy;
+
+            if(newX>=0 && newX <field_x &&
+                    newY>=0 && newY<field_y){
+                neighbours.add(field[newX][newY]);
+            }
+
+        }
+        return neighbours;
+    }
+
+    /*
+    public void open(Box box_tile) {
+        //   box_tile = controller_field[x][y];
+        if (box_tile.isOpen()) {
+            return;
+        }
+        /*
+        isOpen = true;
+        text.setVisible(true);
+        square.setFill(null);
+        */
+    /*
+        box_tile.openActions();
+        if (text.getText().isEmpty()) {
+            //  gameController.getNeighbours().forEach(Box::open);
+            map_field.getNeighbours(box_tile).forEach(t -> open(t.getX(), t.getY()));
+        }
+    }
+    */
 
 
     public int getField_x() {

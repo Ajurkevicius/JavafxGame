@@ -9,6 +9,9 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+
 public class Box extends StackPane {
 
 
@@ -34,13 +37,61 @@ public class Box extends StackPane {
         setTranslateX(x*boxSize);
         setTranslateY(y*boxSize);
 
-        setOnMouseClicked(e -> gameController.open(this.x, this.y));
+        setOnMouseClicked(e -> gameController.open();
 
     }
-
     public Box() {
 
     }
+
+    public void open() {
+        //   box_tile = controller_field[x][y];
+        if (box_tile.isOpen()) {
+            return;
+        }
+        /*
+        isOpen = true;
+        text.setVisible(true);
+        square.setFill(null);
+        */
+        box_tile.openActions();
+        if (text.getText().isEmpty()) {
+            //  gameController.getNeighbours().forEach(Box::open);
+            map_field.getNeighbours(box_tile).forEach(t -> open(t.getX(), t.getY()));
+        }
+    }
+
+    /*
+    public void openActions(){
+        isOpen=true;
+        text.setVisible(true);
+        square.setFill(null);
+    }
+*/
+    /*
+    public void ClickListener(){
+        setOnMouseClicked(e -> gameController.open(this.Box));
+    }
+*/
+    /*
+    public void open(Box box_tile) {
+        //   box_tile = controller_field[x][y];
+
+        if (box_tile.isOpen()) {
+            return;
+        }
+        isOpen = true;
+        text.setVisible(true);
+        square.setFill(null);
+
+        if (text.getText().isEmpty()) {
+            //  gameController.getNeighbours().forEach(Box::open);
+            map_field.getNeighbours(box_tile).forEach(t -> open(t.getX(), t.getY()));
+        }
+    }
+*/
+
+
 /*
     public void open(){
         if(isOpen){
@@ -131,3 +182,4 @@ public class Box extends StackPane {
 
 
 }
+
