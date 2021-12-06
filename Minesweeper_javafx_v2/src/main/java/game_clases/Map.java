@@ -120,16 +120,16 @@ public class Map {
         else if(!tile.isHasBomb()){
             tiles_count--;
             System.out.println("TilesCOunt: " + tiles_count);
+            tile.setOpen(true);
+            tile.visibleTextSetting();
+            tile.borderFillNullSetter();
         }
         if(tiles_count==bomb_count){
             System.out.println("You won, play again");
             scene = tile.getScene();
             gameController.newGameInitialization(scene);
         }
-        tile.setOpen(true);
-        tile.visibleTextSetting();
-        tile.borderFillNullSetter();
-        first_move=true;
+      //  first_move=true;
       //  text.setVisible(true);
        // border.setFill(null);
 
@@ -139,7 +139,7 @@ public class Map {
 
         }
     }
-    
+
     //handle method
     EventHandler<MouseEvent> hnd = event -> {
         System.out.println("cia buvo kodas, kuris pasieke eventa");
