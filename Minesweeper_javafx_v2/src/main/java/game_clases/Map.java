@@ -117,28 +117,29 @@ public class Map {
             gameController.newGameInitialization(scene);
             //return;
         }
-        first_move=true;
-        if(!tile.isHasBomb()){
+        else if(!tile.isHasBomb()){
             tiles_count--;
             System.out.println("TilesCOunt: " + tiles_count);
         }
         if(tiles_count==bomb_count){
             System.out.println("You won, play again");
-            scene.setRoot(createMap());
+            scene = tile.getScene();
+            gameController.newGameInitialization(scene);
         }
         tile.setOpen(true);
         tile.visibleTextSetting();
         tile.borderFillNullSetter();
+        first_move=true;
       //  text.setVisible(true);
        // border.setFill(null);
 
         if(tile.getTextInString().isEmpty()){
-            getNeighbours(tile).forEach(Tile -> open(tile)); // reikia perrasyt
+           // List <Tile> neighboursList = getNeighbours(tile);
+            getNeighbours(tile).forEach( tile1 -> open(tile1)); // reikia perrasyt
 
         }
     }
-
-
+    
     //handle method
     EventHandler<MouseEvent> hnd = event -> {
         System.out.println("cia buvo kodas, kuris pasieke eventa");
