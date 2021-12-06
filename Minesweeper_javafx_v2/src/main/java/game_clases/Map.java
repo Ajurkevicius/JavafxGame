@@ -6,13 +6,14 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import com.example.minesweeper_javafx_v2.HelloApplication;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
 
-    GameController gameController = new GameController();
+    GameController gameController = new GameController() ;
     private static final int width=800;
     private static final int height= 600;
     private static final int tile_size=80;
@@ -105,11 +106,16 @@ public class Map {
 
         } else if(tile.isHasBomb() == true){
             System.out.println("You lost, play again");
-            scene.setRoot(createMap());
+           // scene.setRoot(createMap());
             bomb_count=0;
             tiles_count=tiles_x*tiles_y;
             first_move=false;
-            return;
+            //gameController.displayApplication();
+            System.out.println("code was here in map tile for new game");
+            //gameController.newGameTriggered(true);
+            scene = tile.getScene();
+            gameController.newGameInitialization(scene);
+            //return;
         }
         first_move=true;
         if(!tile.isHasBomb()){
