@@ -118,6 +118,7 @@ public class Map {
             //return;
         }
         else if(!tile.isHasBomb()){
+            first_move=true;
             tiles_count--;
             System.out.println("TilesCOunt: " + tiles_count);
             tile.setOpen(true);
@@ -129,6 +130,7 @@ public class Map {
             scene = tile.getScene();
             gameController.newGameInitialization(scene);
         }
+
       //  first_move=true;
       //  text.setVisible(true);
        // border.setFill(null);

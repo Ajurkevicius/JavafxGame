@@ -5,4 +5,5 @@ module com.example.minesweeper_javafx_v2 {
 
     opens com.example.minesweeper_javafx_v2 to javafx.fxml;
     exports com.example.minesweeper_javafx_v2;
+    exports game_clases to  javafx.graphics;
 }

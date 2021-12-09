@@ -24,6 +24,7 @@ public class HelloApplication extends Application {
        // FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gameEntry.fxml"));
        // Scene scene = new Scene(fxmlLoader.load());
         GameController gameController=new GameController();
+        gameController.start(stage);
        /*
         Map mape = new Map();
         Scene scene = new Scene(mape.createMap());
@@ -32,7 +33,7 @@ public class HelloApplication extends Application {
         stage.show();
         */
         //gameController.newTryEMailStage(stage);
-        gameController.start(stage);
+
         /*
         Platform.setImplicitExit(false);
 
