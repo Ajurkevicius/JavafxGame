@@ -6,7 +6,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class Tile extends StackPane {
-    GameController controller = new GameController();
     private int tile_size=80;
     private int  x, y;
     private boolean hasBomb;
@@ -18,16 +17,12 @@ public class Tile extends StackPane {
         this.y = y;
         this.hasBomb = hasBomb;
         border.setStroke(Color.GRAY);
-        //text.setFill(Color.WHITE);
         text.setText(hasBomb ? "X" : "");
         text.setVisible(false);
-        //border.setFill(null);
         getChildren().addAll(border, text);
         setTranslateX(x*tile_size);
         setTranslateY(y*tile_size);
 
-        //setOnMouseClicked(e -> open());
-      //  setOnMouseClicked(e -> controller.listenToClick(this.x,this.y));
 
     }
 
