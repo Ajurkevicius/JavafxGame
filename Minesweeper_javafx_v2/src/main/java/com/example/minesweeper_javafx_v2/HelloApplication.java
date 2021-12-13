@@ -23,8 +23,8 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws Exception {
        // FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gameEntry.fxml"));
        // Scene scene = new Scene(fxmlLoader.load());
-        GameController gameController=new GameController();
-        gameController.start(stage);
+     //   GameController gameController=new GameController();
+     //   gameController.start(stage);
        /*
         Map mape = new Map();
         Scene scene = new Scene(mape.createMap());

@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
-class Tile extends StackPane {
+public class Tile extends StackPane {
     GameController controller = new GameController();
     private int tile_size=80;
     private int  x, y;
